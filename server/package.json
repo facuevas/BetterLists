@@ -1,0 +1,17 @@
+{
+  "name": "todo_list",
+  "version": "0.1.0",
+  "description": "A Todo List application. Server-side created using Express.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Francis Angelo Cuevas",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5"
+  }
+}

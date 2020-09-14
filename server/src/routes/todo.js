@@ -14,6 +14,18 @@ router.get('/', (req, res) => {
     })
 });
 
+// Grab one todo
+router.get('/:id', (req, res) => {
+    Todo.findById({_id: req.params.id}, (err, doc) => {
+        if (err) {
+            res.status(500).json({err});
+        }
+        else {
+            res.status(200).json(doc);
+        }
+    })
+})
+
 // Add a new todo
 router.post('/add', (req, res) => {
     const { message } = req.body;

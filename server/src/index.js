@@ -4,6 +4,7 @@
 // Package imports
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 // Class imports
@@ -12,6 +13,7 @@ const todo = require('./routes/todo');
 // Express init
 const port = process.env.PORT;
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use('/', todo);
 

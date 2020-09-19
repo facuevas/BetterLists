@@ -12,13 +12,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import axiosConfig from "../../services/axiosConfig";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: "absolute",
-    width: "30%",
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
   },
   typography: {
     justifyContent: "center",
@@ -83,30 +81,29 @@ const AddItem = () => {
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       >
-        <Paper className={classes.paper}>
-          <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
-            <Grid item xs={12}>
-            <Typography
-              align="center"
-              variant="h6"
-              className={classes.typography}
-            >
-              Add Item
+        <Paper className={classes.root}>
+          <Grid container direction="column" justify="center" alignItems="center">
+            <Grid>
+              <Typography
+                align="center"
+                variant="h6"
+                className={classes.typography}
+              >
+                Add Item
             </Typography>
             </Grid>
-            <Grid item xs="auto">
-            <form noValidate autoComplete="off">
-              <TextField
-                id="message"
-                label="e.g. Milk"
-                onChange={handleChange}
-              />
-            </form>
-            </Grid>
-            <Grid item xs="auto">
-            <IconButton onClick={handleSubmit}>
-              <Add />
-            </IconButton>
+            <Grid container direction="row">
+              <form noValidate autoComplete="off">
+                <TextField
+                  id="message"
+                  label="e.g. Milk"
+                  variant="outlined"
+                  onChange={handleChange}
+                />
+              </form>
+              <IconButton onClick={handleSubmit}>
+                <Add />
+              </IconButton>
             </Grid>
           </Grid>
         </Paper>

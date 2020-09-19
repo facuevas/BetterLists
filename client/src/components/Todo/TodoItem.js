@@ -1,8 +1,9 @@
 import React from "react";
 import { Paper, Grid, IconButton, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Delete, Edit, Done } from "@material-ui/icons";
+import { Delete, Done } from "@material-ui/icons";
 import axiosConfig from "../../services/axiosConfig";
+import EditItem from "../EditItem/EditItem";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "line-through",
     fontStyle: "italic",
   },
-  deleteButton: {
+  button: {
     padding: "0 10px 0 0",
   },
 }));
@@ -67,13 +68,11 @@ const TodoItem = (props) => {
           )}
         </Grid>
         <Grid>
-          <IconButton className={classes.deleteButton} onClick={handleComplete}>
+          <EditItem todo={props.todo}/>
+          <IconButton className={classes.button} onClick={handleComplete}>
             <Done />
-          </IconButton>
-          <IconButton className={classes.deleteButton}>
-            <Edit />
-          </IconButton>
-          <IconButton className={classes.deleteButton} onClick={handleDelete}>
+          </IconButton >
+          <IconButton className={classes.button} onClick={handleDelete}>
             <Delete />
           </IconButton>
         </Grid>
